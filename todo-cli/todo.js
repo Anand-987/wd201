@@ -36,23 +36,27 @@ const todoList = () => {
         j = 0;
         for (let i = 0; i < list.length; i++) {
             if (list[i].completed == false && list[i].dueDate != today) {
-                if (i == list.length) {
+                if (i == list.length - 1) {
                     str += "[ ] " + list[i].title + " " + list[i].dueDate
                 }
-                str += "[ ] " + list[i].title + " " + list[i].dueDate + "\n"
+                else {
+                    str += "[ ] " + list[i].title + " " + list[i].dueDate + "\n"
+                }
             }
             else if ((list[i].completed == true) && (list[i].dueDate == today)) {
-                if (i == list.length) {
+                if (i == list.length - 1) {
                     str += "[x] " + list[i].title + " "
+                } else {
+                    str += "[x] " + list[i].title + "\n"
                 }
-                str += "[x] " + list[i].title + "\n"
-
             }
             else if ((list[i].completed == false) && (list[i].dueDate == today)) {
-                if (i == list.length) {
+                if (i == list.length - 1) {
                     str += "[ ] " + list[i].title + " "
                 }
-                str += "[ ] " + list[i].title + "\n"
+                else {
+                    str += "[ ] " + list[i].title + "\n"
+                }
             }
         }
         return str
