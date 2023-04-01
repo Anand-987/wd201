@@ -34,13 +34,13 @@ const todoList = () => {
         // as per the format given above.
         for (let i = 0; i < list.length; i++) {
             if (list[i].completed == false && list[i].dueDate != today) {
-                str = console.log("[ ] " + list[i].title + " " + list[i].dueDate)
+                str = "[ ] " + list[i].title + " " + list[i].dueDate
             }
             else if ((list[i].completed == true) && (list[i].dueDate == today)) {
-                str = console.log("[x] " + list[i].title)
+                str = "[x] " + list[i].title
             }
             else if ((list[i].completed == false) && (list[i].dueDate == today)) {
-                str = console.log("[ ] " + list[i].title)
+                str = "[ ] " + list[i].title
             }
         }
         return str
