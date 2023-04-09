@@ -27,12 +27,12 @@ module.exports = (sequelize, DataTypes) => {
       }).join("\n"))
 
       console.log("Due Toady")
-      console.log((await Todo.duetoday()).map((todo) => {
+      console.log((await Todo.dueToday()).map((todo) => {
         return todo.displayableString()
       }).join("\n"))
 
       console.log("Due Later")
-      console.log((await Todo.duelater()).map((todo) => {
+      console.log((await Todo.dueLater()).map((todo) => {
         return todo.displayableString()
       }).join("\n"))
     };
@@ -45,7 +45,7 @@ module.exports = (sequelize, DataTypes) => {
       })
     }
 
-    static async duetoday () {
+    static async dueToday () {
       return await Todo.findAll({
         where: {
           dueDate: { [Op.eq]: new Date().toLocaleDateString("en-CA") },
@@ -53,7 +53,7 @@ module.exports = (sequelize, DataTypes) => {
       })
     }
 
-    static async duelater () {
+    static async dueLater () {
       return await Todo.findAll({
         where: {
           dueDate: { [Op.gt]: new Date().toLocaleDateString("en-CA") },
